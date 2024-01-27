@@ -22,8 +22,8 @@ public function payWithphonepay(Request $request){
         
     $order = Order::where(['id' => $request->order_id, 'user_id'=>$request->customer_id])->first();
     $user= User::where('id',$request->customer_id)->first();
-    $merchantId = "GETONDIALONLINE"; // put your merchandid 
-    $salt_key = "49262106-a87d-4f7d-ba24-8051ff09529a"; // put your salt key
+    $merchantId = "######################"; // put your merchandid 
+    $salt_key = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"; // put your salt key
    
     $data = array (
            'merchantId' => $merchantId,// change merchandid from your phone pe account  ,
@@ -63,7 +63,7 @@ public function payWithphonepay(Request $request){
         $input = $request->all();
         //dd($order_id);
         $order = Order::where(['id'=>$order_id])->first();
-        $saltKey = "49262106-a87d-4f7d-ba24-8051ff09529a";
+        $saltKey = "###################################";
         $saltIndex = 1;
         $finalXHeader = hash('sha256','/pg/v1/status/'.$input['merchantId'].'/'.$input['transactionId'].$saltKey).'###'.$saltIndex;
 
