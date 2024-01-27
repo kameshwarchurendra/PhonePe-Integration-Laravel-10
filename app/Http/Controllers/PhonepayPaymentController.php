@@ -39,7 +39,7 @@ public function payWithphonepay(Request $request){
           //dd(json_encode($data));
          $encode = base64_encode(json_encode($data, JSON_PRETTY_PRINT));
         
-         $saltKey =$salt_key; // change salkey  from your phonepe account  '49262106-a87d-4f7d-ba24-8051ff09529a'; 
+         $saltKey =$salt_key; // change salkey  from your phonepe account 
          $saltIndex = 1;
          $string = $encode.'/pg/v1/pay'.$saltKey;
          $sha256 = hash('sha256',$string);
